@@ -31,7 +31,7 @@ startButton.addEventListener('click', function () {
         --number;
     }
 
-    // Update 'btns' object
+    // Updated 'btns' object
     btns = document.querySelectorAll('.btn');
 
     // Loop throw all the buttons and see which button coresponds with the random number generated and inform player
