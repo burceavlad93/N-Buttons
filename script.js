@@ -1,6 +1,5 @@
 'use strict';
 let input, number, secretNumber;
-let hiddenCheat = 5;
 let cheatStatus = false;
 let btns = document.querySelector('.btn');
 const userInput = document.querySelector('.input');
