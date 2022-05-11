@@ -10,26 +10,32 @@ const resetGame = document.querySelector('.reset');
 const game = document.querySelector('.buttons');
 const startButton = document.querySelector('.generate');
 
+// Added 'click' event for the START button
 startButton.addEventListener('click', function () {
     number = Number(userInput.value);
 
+    // If the input value is <= than 0, inform player
     if (number <= 0) {
         tittle.textContent = 'Please insert a number higher than 0';
         game.classList.toggle('hidden');
         tryAgain.classList.toggle('hidden');
+    // If the input value is > than 0, generate random number based on input
     } else {
         secretNumber = Math.trunc(Math.random() * number) + 1;
         userInput.classList.add('hidden');
         startButton.classList.add('hidden');
     }
 
+    // Generate n buttons, where n is == to the input value
     while (number !== 0) {
         game.innerHTML += `<button class="btn"> Click! </button>`;
         --number;
     }
 
+    // Update 'btns' object
     btns = document.querySelectorAll('.btn');
 
+    // Loop throw all the buttons and see which button coresponds with the random number generated and inform player
     for (let i = 0; i < btns.length; ++i) {
         btns[i].addEventListener('click', function () {
 
@@ -49,6 +55,7 @@ startButton.addEventListener('click', function () {
     }
 })
 
+// Sends player back to either input stage or button selection stage 
 tryAgain.addEventListener('click', function () {
     document.body.style.backgroundColor = '#222';
     tittle.textContent = 'Guess The Button!';
@@ -56,4 +63,5 @@ tryAgain.addEventListener('click', function () {
     tryAgain.classList.toggle('hidden');
 })
 
+// Reloads the game
 resetGame.addEventListener('click', function () { location.reload() });
